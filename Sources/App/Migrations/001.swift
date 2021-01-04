@@ -41,6 +41,8 @@ struct CreateWager: Migration {
     func prepare(on database: Database) -> EventLoopFuture<Void> {
         return database.schema("wagers")
             .id()
+            .field("user", .uuid)
+            .foreignKey("user", references: "users", "id")
             .field("game", .uuid)
             .foreignKey("game", references: "games", "id")
             .field("contest", .uuid)

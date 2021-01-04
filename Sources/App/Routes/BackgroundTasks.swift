@@ -1,14 +1,16 @@
-import Fluent
-import FluentPostgresDriver
-import Vapor
-import SwiftSoup
-import Jobs
-#if canImport(FoundationNetworking)
-import FoundationNetworking
-#endif
+//
+//  File.swift
+//  
+//
+//  Created by Tyler Rolfe on 1/4/21.
+//
 
-func routes(_ app: Application) throws {
-    
+import Foundation
+import Vapor
+import Fluent
+import Jobs
+
+func BackgroundTasks(_ app: Application) throws {
     func networkRequestTo(_ link: String, completionHandler: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?)->Void) {
         let sessionConfig = URLSessionConfiguration.default
         sessionConfig.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
@@ -35,7 +37,7 @@ func routes(_ app: Application) throws {
     }
     
     app.get("run") { req -> String in
-        let intervalString: String = Environment.get("INTERVAL") ?? "999999999999"
+        let intervalString: String = Environment.get("INTERVAL") ?? "999999"
         let interval: Double = Double(intervalString)!
         
         Jobs.add(interval: .seconds(interval)) {
@@ -73,33 +75,4 @@ func routes(_ app: Application) throws {
         }
         return "Running"
     }
-  
-    
-    
-    
-    
-    
-//    app.get("wager") { req -> String in
-//        let _id = UUID(uuidString: "10b5432b-5d70-4fdf-bfb8-b27e195bfeb7")
-//        let _contest = UUID(uuidString: "70815841-e2cd-4d10-8c68-4637ef889343")
-//        guard let id = _id else { return "" }
-//        guard let contest = _contest else { return "" }
-//        let game = Game.query(on: req.db).filter(\._$id == id).first()
-//        game.map { (game) -> (String) in
-//            let wager = Wager()
-//            wager.amount = 10
-//            wager.type = .total
-//            wager.total = .over
-//            wager.odds = 115
-//            wager.$game.id = id
-//            wager.$contest.id = contest
-//            wager.toWin = wager.calculateWinnings()
-//            wager.grade = .pending
-//            wager.save(on: req.db)
-//
-//            return "Uhmmm"
-//        }
-//
-//        return "Running Wager"
-//    }
 }

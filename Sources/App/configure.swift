@@ -1,12 +1,13 @@
 import Fluent
 import FluentPostgresDriver
 import Vapor
+import Leaf
 
 // configures your application
 public func configure(_ app: Application) throws {
     
-    // uncomment to serve files from /Public folder
-    // app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
+    app.views.use(.leaf)
+    app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
 
     app.databases.use(.postgres(
             hostname: Environment.get("localhost") ?? "localhost",
@@ -16,13 +17,14 @@ public func configure(_ app: Application) throws {
     ), as: .psql)
 //
     app.migrations.add(CreateGame())
-//    app.migrations.add(CreateTeam())
-//    app.migrations.add(CreateLeague())
-//    app.migrations.add(CreateContest())
-//    app.migrations.add(CreateWager())
+    app.migrations.add(User.Migration())
+    app.migrations.add(UserToken.Migration())
+    app.migrations.add(CreateContest())
+    app.migrations.add(CreateWager())
     
     try app.autoMigrate().wait()
 
     // register routes
-    try routes(app)
+    try TestRoutes(app)
+    try BackgroundTasks(app)
 }

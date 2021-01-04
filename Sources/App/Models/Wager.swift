@@ -38,6 +38,9 @@ final class Wager: Model, Content {
     @Parent(key: "contest")
     var contest: Contest
     
+    @Parent(key: "user")
+    var user: User
+    
     /// The wager amount
     @Field(key: "amount")
     var amount: Float
