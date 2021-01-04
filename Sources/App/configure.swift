@@ -9,14 +9,6 @@ public func configure(_ app: Application) throws {
     // app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
 
     app.databases.use(.postgres(
-        hostname: Environment.get("localhost") ?? "localhost",
-        username: Environment.get("tylermrolfe") ?? "tylermrolfe",
-        password: Environment.get("password") ?? "password",
-        database: Environment.get("betbattle") ?? "betbattle"
-    ), as: .psql)
-
-    
-    app.databases.use(.postgres(
             hostname: Environment.get("localhost") ?? "localhost",
             username: Environment.get("DBUSER") ?? "tylermrolfe",
             password: Environment.get("DBPASS") ?? "password",
