@@ -34,8 +34,6 @@ func routes(_ app: Application) throws {
         
     }
     
-    
-    
     app.get("run") { req -> String in
         let intervalString: String = Environment.get("INTERVAL") ?? "999999999999"
         let interval: Double = Double(intervalString)!
@@ -47,8 +45,7 @@ func routes(_ app: Application) throws {
             formatter.dateFormat = "YYYY-MM-DD"
             let newDate = formatter.string(from: date)
             
-            let url = Environment.get("URL")
-            
+            guard let url: String = Environment.get("URL") else { throw Abort(.badRequest) }
             networkRequestTo("\(url)?date=\(newDate)") { (data, response, err) in
                 do {
                     if let gamesData = data {
