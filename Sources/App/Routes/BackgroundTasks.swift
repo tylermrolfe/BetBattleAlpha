@@ -9,6 +9,9 @@ import Foundation
 import Vapor
 import Fluent
 import Jobs
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 
 func BackgroundTasks(_ app: Application) throws {
     func networkRequestTo(_ link: String, completionHandler: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?)->Void) {
