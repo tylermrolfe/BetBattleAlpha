@@ -14,6 +14,20 @@ import FoundationNetworking
 #endif
 
 func BackgroundTasks(_ app: Application) throws {
+    
+    
+    app.get("time") { req -> String in
+            let dateFormatter = DateFormatter()
+            let enUSPosixLocale = Locale(identifier: "en_US_POSIX")
+            dateFormatter.locale = enUSPosixLocale
+            dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+            dateFormatter.calendar = Calendar(identifier: .gregorian)
+
+            let iso8601String = dateFormatter.string(from: Date())
+            return iso8601String
+    }
+    
     func networkRequestTo(_ link: String, completionHandler: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?)->Void) {
         let sessionConfig = URLSessionConfiguration.default
         sessionConfig.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
