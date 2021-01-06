@@ -45,13 +45,17 @@ func BackgroundTasks(_ app: Application) throws {
         
         Jobs.add(interval: .seconds(interval)) {
             // Set Date
-            let date = Date()
-            let formatter = DateFormatter()
-            formatter.dateFormat = "YYYY-MM-DD"
-            let newDate = formatter.string(from: date)
+            let dateFormatter = DateFormatter()
+            let enUSPosixLocale = Locale(identifier: "en_US_POSIX")
+            dateFormatter.locale = enUSPosixLocale
+            dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+            dateFormatter.calendar = Calendar(identifier: .gregorian)
+
+            let iso8601String = dateFormatter.string(from: Date())
             
             guard let url: String = Environment.get("URL") else { throw Abort(.badRequest) }
-            networkRequestTo("\(url)?date=\(newDate)") { (data, response, err) in
+            networkRequestTo("\(url)?date=\(iso8601String)") { (data, response, err) in
                 do {
                     if let gamesData = data {
                         let spf: SPF = try JSONDecoder().decode(SPF.self, from: gamesData)
