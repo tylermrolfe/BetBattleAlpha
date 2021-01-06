@@ -53,6 +53,7 @@ func BackgroundTasks(_ app: Application) throws {
             dateFormatter.calendar = Calendar(identifier: .gregorian)
 
             let iso8601String = dateFormatter.string(from: Date())
+            print(iso8601String)
             
             guard let url: String = Environment.get("URL") else { throw Abort(.badRequest) }
             networkRequestTo("\(url)?date=\(iso8601String)") { (data, response, err) in
