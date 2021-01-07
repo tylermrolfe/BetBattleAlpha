@@ -3,7 +3,13 @@
 <head>
 <style>
 table, th, td{
+  text-align: center;
   border: 1px solid black;
+}
+
+td {
+  padding-left: 8px;
+  padding-right: 8px;
 }
 </style>
 </head>
@@ -26,6 +32,8 @@ table, th, td{
     <th>Total Under Odds</th>
     <th>Away Score</th>
     <th>Home Score</th>
+    <th>Away Scores by Period</th>
+    <th>Home Scores by Period</th>
     <th>Current Period</th>
     <th>Period Time Left</th>
     <th>Status</th>
@@ -50,6 +58,8 @@ table, th, td{
         <td>#(game.totalUnderOdds)</td>
         <td>#(game.awayScore)</td>
         <td>#(game.homeScore)</td>
+        <td>#(game.awayscoreByPeriod)</td>
+        <td>#(game.homescoreByPeriod)</td>
         <td>#(game.currentPeriod)</td>
         <td>#(game.periodTimeRemaining)</td>
         <td>#(game.status)</td>
