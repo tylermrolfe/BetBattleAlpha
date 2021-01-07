@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td{
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<table>
+  <tr>
+    <th>UUID</th>
+    <th>SPF ID</th>
+    <th>League</th>
+    <th>Away Team</th>
+    <th>Home Team</th>
+    <th>Away ML</th>
+    <th>Home ML</th>
+    <th>Away Spread</th>
+    <th>Home Spread</th>
+    <th>Away Spread Odds</th>
+    <th>Home Spread Odds</th>
+    <th>Total</th>
+    <th>Total Over Odds</th>
+    <th>Total Under Odds</th>
+    <th>Away Score</th>
+    <th>Home Score</th>
+    <th>Current Period</th>
+    <th>Period Time Left</th>
+    <th>Status</th>
+    <th>Location</th>
+    <th>Date</th>
+  </tr>
+  #for(game in gamesArr):
+      <tr>
+        <td>#(game.id)</td>
+        <td>#(game.spfID)</td>
+        <td>#(game.league)</td>
+        <td>#(game.awayTeam)</td>
+        <td>#(game.homeTeam)</td>
+        <td>#(game.awayMoneyline)</td>
+        <td>#(game.homeMoneyline)</td>
+        <td>#(game.awaySpread)</td>
+        <td>#(game.homeSpread)</td>
+        <td>#(game.awaySpreadOdds)</td>
+        <td>#(game.homeSpreadOdds)</td>
+        <td>#(game.total)</td>
+        <td>#(game.totalOverOdds)</td>
+        <td>#(game.totalUnderOdds)</td>
+        <td>#(game.awayScore)</td>
+        <td>#(game.homeScore)</td>
+        <td>#(game.currentPeriod)</td>
+        <td>#(game.periodTimeRemaining)</td>
+        <td>#(game.status)</td>
+        <td>#(game.location)</td>
+        <td>#(game.date)</td>
+      </tr>
+  #endfor
+</table>
+
+</body>
+</html>
+

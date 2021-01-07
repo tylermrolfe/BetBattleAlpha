@@ -15,6 +15,12 @@ import FoundationNetworking
 
 func BackgroundTasks(_ app: Application) throws {
     
+    app.get("games") { req -> EventLoopFuture<View> in
+        return Game.query(on: req.db).filter(\.$status != "canceled").sort(\.$date).all().flatMap { (games) -> EventLoopFuture<View> in
+            return req.view.render("games", ["gamesArr": games])
+        }
+
+    }
     
     app.get("time") { req -> String in
             let dateFormatter = DateFormatter()
