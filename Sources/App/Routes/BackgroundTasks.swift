@@ -76,7 +76,7 @@ func BackgroundTasks(_ app: Application) throws {
             print(iso8601String)
             
             guard let url: String = Environment.get("URL") else { throw Abort(.badRequest) }
-            networkRequestTo("\(url)?date=\(iso8601String)") { (data, response, err) in
+            networkRequestTo("\(url)") { (data, response, err) in
                 do {
                     if let gamesData = data {
                         let spf: SPF = try JSONDecoder().decode(SPF.self, from: gamesData)
