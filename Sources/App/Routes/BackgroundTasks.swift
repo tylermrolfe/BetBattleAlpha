@@ -21,10 +21,10 @@ func BackgroundTasks(_ app: Application) throws {
             let enUSPosixLocale = Locale(identifier: "en_US_POSIX")
             dateFormatter.locale = enUSPosixLocale
             dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
             dateFormatter.calendar = Calendar(identifier: .gregorian)
 
-            let iso8601String = dateFormatter.string(from: Date())
+            let iso8601String = dateFormatter.string(from: Date()) + "Z"
             return iso8601String
     }
     
