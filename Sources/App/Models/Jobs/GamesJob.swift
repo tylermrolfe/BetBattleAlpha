@@ -13,6 +13,7 @@ import Queues
 
 struct GamesJob: ScheduledJob {
     func run(context: QueueContext) -> EventLoopFuture<Void> {
+        print("AHHHH")
         let url: String = Environment.get("URL")!
         networkRequestTo("\(url)") { (data, response, err) in
             do {
