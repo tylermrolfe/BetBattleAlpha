@@ -11,9 +11,9 @@ let package = Package(
         .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
         .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0"),
         .package(url: "https://github.com/vapor/fluent-postgres-driver.git", from: "2.0.0"),
-        .package(url: "https://github.com/scinfu/SwiftSoup.git", from: "1.7.4"),
-        .package(url: "https://github.com/BrettRToomey/Jobs.git", from: "1.1.1"),
-        .package(url: "https://github.com/vapor/leaf.git", from: "4.0.0")
+        .package(url: "https://github.com/vapor/leaf.git", from: "4.0.0"),
+        .package(url: "https://github.com/vapor-community/stripe.git", from: "8.0.0"),
+        .package(name: "QueuesFluentDriver", url: "https://github.com/m-barthelemy/vapor-queues-fluent-driver.git", from: "1.1.0")
     ],
     targets: [
         .target(
@@ -22,9 +22,9 @@ let package = Package(
                 .product(name: "Fluent", package: "fluent"),
                 .product(name: "FluentPostgresDriver", package: "fluent-postgres-driver"),
                 .product(name: "Vapor", package: "vapor"),
-                .product(name: "SwiftSoup", package: "SwiftSoup"),
-                .product(name: "Jobs", package: "Jobs"),
-                .product(name: "Leaf", package: "leaf")
+                .product(name: "Leaf", package: "leaf"),
+                .product(name: "Stripe", package: "stripe"),
+                .product(name: "QueuesFluentDriver", package: "QueuesFluentDriver")
                 
             ],
             swiftSettings: [

@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Tyler Rolfe on 1/4/21.
 //
@@ -8,7 +8,6 @@
 import Foundation
 import Vapor
 import Fluent
-import Jobs
 #if canImport(FoundationNetworking)
 import FoundationNetworking
 #endif
@@ -62,18 +61,6 @@ func BackgroundTasks(_ app: Application) throws {
     app.get("run") { req -> String in
         let intervalString: String = Environment.get("INTERVAL") ?? "999999"
         let interval: Double = Double(intervalString)!
-        
-        Jobs.add(interval: .seconds(interval)) {
-            // Set Date
-            let dateFormatter = DateFormatter()
-            let enUSPosixLocale = Locale(identifier: "en_US_POSIX")
-            dateFormatter.locale = enUSPosixLocale
-            dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-            dateFormatter.calendar = Calendar(identifier: .gregorian)
-
-            let iso8601String = dateFormatter.string(from: Date())
-            print(iso8601String)
             
             guard let url: String = Environment.get("URL") else { throw Abort(.badRequest) }
             networkRequestTo("\(url)") { (data, response, err) in
@@ -100,7 +87,6 @@ func BackgroundTasks(_ app: Application) throws {
                     print(error)
                 }
             }
-        }
         return "Running"
     }
 }

@@ -2,6 +2,7 @@ import Fluent
 import FluentPostgresDriver
 import Vapor
 import Leaf
+import QueuesFluentDriver
 
 // configures your application
 public func configure(_ app: Application) throws {
@@ -21,8 +22,15 @@ public func configure(_ app: Application) throws {
     app.migrations.add(UserToken.Migration())
     app.migrations.add(CreateContest())
     app.migrations.add(CreateWager())
+    app.migrations.add(JobModelMigrate())
+    app.migrations.add(JobModelMigrate(schema: "jobs"))
     
     try app.autoMigrate().wait()
+    
+    app.queues.use(.fluent())
+    
+    app.queues.schedule(GamesJob())
+        .hourly().at(15)
 
     // register routes
     try TestRoutes(app)

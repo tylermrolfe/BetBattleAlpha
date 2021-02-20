@@ -22,14 +22,18 @@ final class User: Model, Content {
 
     @Field(key: "password")
     var password: String
+    
+    @Field(key: "balance")
+    var balance: Double
 
     init() { }
 
-    init(id: UUID? = nil, username: String, email: String, password: String) {
+    init(id: UUID? = nil, username: String, email: String, password: String, balance: Double) {
         self.id = id
         self.username = username
         self.email = email
         self.password = password
+        self.balance = balance
     }
 }
 
@@ -43,6 +47,7 @@ extension User {
                 .field("username", .string, .required)
                 .field("email", .string, .required)
                 .field("password", .string, .required)
+                .field("balance", .double)
                 .create()
         }
 
@@ -66,6 +71,7 @@ extension User.Create: Validatable {
         validations.add("username", as: String.self, is: !.empty)
         validations.add("email", as: String.self, is: .email)
         validations.add("password", as: String.self, is: .count(8...))
+        validations.add("balance", as: Double.self)
     }
 }
 

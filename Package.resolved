@@ -56,15 +56,6 @@
         }
       },
       {
-        "package": "Jobs",
-        "repositoryURL": "https://github.com/BrettRToomey/Jobs.git",
-        "state": {
-          "branch": null,
-          "revision": "2051cc49b64692534225ea9d347051f64ac682ee",
-          "version": "1.1.2"
-        }
-      },
-      {
         "package": "leaf",
         "repositoryURL": "https://github.com/vapor/leaf.git",
         "state": {
@@ -101,6 +92,15 @@
         }
       },
       {
+        "package": "queues",
+        "repositoryURL": "https://github.com/vapor/queues.git",
+        "state": {
+          "branch": null,
+          "revision": "9418af49ca3ca779c2fab7aa0cedecb1aa6779b6",
+          "version": "1.5.1"
+        }
+      },
+      {
         "package": "routing-kit",
         "repositoryURL": "https://github.com/vapor/routing-kit.git",
         "state": {
@@ -116,6 +116,24 @@
           "branch": null,
           "revision": "ea9928b7f4a801b175a00b982034d9c54ecb6167",
           "version": "3.7.0"
+        }
+      },
+      {
+        "package": "stripe",
+        "repositoryURL": "https://github.com/vapor-community/stripe.git",
+        "state": {
+          "branch": null,
+          "revision": "41f72a0baef3367548ce1c68c1a52251eda909d1",
+          "version": "8.0.0"
+        }
+      },
+      {
+        "package": "stripe-kit",
+        "repositoryURL": "https://github.com/vapor-community/stripe-kit.git",
+        "state": {
+          "branch": null,
+          "revision": "3351215afe23502e57079b7ea0a84aae0ed17ad1",
+          "version": "10.1.1"
         }
       },
       {
@@ -191,21 +209,21 @@
         }
       },
       {
-        "package": "SwiftSoup",
-        "repositoryURL": "https://github.com/scinfu/SwiftSoup.git",
-        "state": {
-          "branch": null,
-          "revision": "11da8c685ddde2d519fad04a7daf8485bbbc773e",
-          "version": "1.7.5"
-        }
-      },
-      {
         "package": "vapor",
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
           "branch": null,
           "revision": "75c7236859834c4f23d373905768976cf6550600",
           "version": "4.20.1"
+        }
+      },
+      {
+        "package": "QueuesFluentDriver",
+        "repositoryURL": "https://github.com/m-barthelemy/vapor-queues-fluent-driver.git",
+        "state": {
+          "branch": null,
+          "revision": "d2ce446341ab45c0b7ea4380a5f77d1e023ccbd8",
+          "version": "1.1.0"
         }
       },
       {
