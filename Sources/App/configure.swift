@@ -29,7 +29,7 @@ public func configure(_ app: Application) throws {
     app.queues.use(.fluent())
     
     app.queues.schedule(GamesJob())
-        .hourly().at(15)
+        .hourly().at(30)
 
     // register routes
     try TestRoutes(app)
