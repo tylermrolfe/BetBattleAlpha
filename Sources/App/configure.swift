@@ -63,8 +63,6 @@ public func configure(_ app: Application) throws {
     app.queues.schedule(GamesJob())
         .daily().at(23, 0)
     app.queues.schedule(GamesJob())
-        .daily().at(24, 0)
-    app.queues.schedule(GamesJob())
         .daily().at(1, 0)
     app.queues.schedule(GamesJob())
         .daily().at(2, 0)
