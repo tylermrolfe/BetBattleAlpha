@@ -10,6 +10,9 @@ import Vapor
 import Fluent
 import QueuesFluentDriver
 import Queues
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 
 struct GamesJob: ScheduledJob {
     func run(context: QueueContext) -> EventLoopFuture<Void> {
