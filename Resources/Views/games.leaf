@@ -83,8 +83,8 @@ table td {
         <td>#(game.totalUnderOdds)</td>
         <td>#(game.awayScore)</td>
         <td>#(game.homeScore)</td>
-        <td>#(game.awayscoreByPeriod)</td>
-        <td>#(game.homescoreByPeriod)</td>
+        <td>#(game.awayScoreByPeriod)</td>
+        <td>#(game.homeScoreByPeriod)</td>
         <td>#(game.currentPeriod)</td>
         <td>#(game.periodTimeRemaining)</td>
         <td>#(game.status)</td>
@@ -96,4 +96,3 @@ table td {
 
 </body>
 </html>
-

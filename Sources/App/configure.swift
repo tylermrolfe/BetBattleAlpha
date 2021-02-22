@@ -68,10 +68,11 @@ public func configure(_ app: Application) throws {
         .daily().at(2, 0)
     
     // Starts the queues off in the same thread.
-    try app.queues.startInProcessJobs()
-    try app.queues.startScheduledJobs()
+    
+    //try app.queues.startInProcessJobs()
+    //try app.queues.startScheduledJobs()
 
     // register routes
     try TestRoutes(app)
-    try BackgroundTasks(app)
+    try HelperTasks(app)
 }

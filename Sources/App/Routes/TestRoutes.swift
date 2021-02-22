@@ -8,6 +8,10 @@ import FoundationNetworking
 
 func TestRoutes(_ app: Application) throws {
     
+    app.get("index") { req -> EventLoopFuture<View> in
+        return req.view.render("index")
+    }
+    
     app.get("chargecustomer") { req -> String in
         
         req.stripe.customers.retrieve(customer: "cus_IiRdTUMs53kkjj", expand: ["sources"]).map { (customer) -> (String) in

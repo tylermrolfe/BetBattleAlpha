@@ -168,21 +168,8 @@ final class Team: Model, Content {
     @Field(key: "arena")
     var arena: String?
 
-    
-    
+        
     init() { }
-    
-//    init(id: UUID? = nil, name: String, location: String, nickname: String, logo: String, primaryColor: String, secondaryColor: String, arena: String) {
-//        self.id = id
-//        self.name = name
-//        self.location = location
-//        self.nickname = nickname
-//        self.logo = logo
-//        self.primaryColor = primaryColor
-//        self.secondaryColor = secondaryColor
-//        self.arena = arena
-//    }
-    
 }
 
 extension String {
