@@ -16,7 +16,8 @@ public func configure(_ app: Application) throws {
             password: Environment.get("DBPASS") ?? "password",
             database: Environment.get("betbattle") ?? "betbattle"
     ), as: .psql)
-//
+    
+    //MARK: Migrations
     app.migrations.add(CreateGame())
     app.migrations.add(User.Migration())
     app.migrations.add(UserToken.Migration())
@@ -28,14 +29,15 @@ public func configure(_ app: Application) throws {
     
     app.queues.use(.fluent())
     
-    runScheduledJobs(app)
     
+    //MARK: Scheduled Jobs
+    runScheduledJobs(app)
     
     // Starts the queues off in the same thread.
     try app.queues.startInProcessJobs()
     try app.queues.startScheduledJobs()
 
-    // register routes
+    //MARK: Routes
     try TestRoutes(app)
     try HelperTasks(app)
 }
