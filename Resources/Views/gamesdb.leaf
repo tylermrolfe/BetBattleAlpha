@@ -59,7 +59,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!--end::Page Scripts-->
 
-
+<div class="card-body px-5">
 		<table class="table table-bordered">
 			<tr>
 				<th>UUID</th>
@@ -114,6 +114,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					</tr>
 			#endfor
 		</table>
+	</div>
 
 		<!--[html-partial:include:{"file":"layout.html"}]/-->
 		#extend("partials/_layout")
