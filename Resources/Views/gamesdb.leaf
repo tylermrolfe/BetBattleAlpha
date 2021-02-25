@@ -55,6 +55,66 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!--begin::Body-->
 	<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
 
+		<script src="assets/js/pages/widgets.js"></script>
+
+		<!--end::Page Scripts-->
+
+
+		<table class="table table-bordered">
+			<tr>
+				<th>UUID</th>
+				<th>SPF ID</th>
+				<th>League</th>
+				<th>Away Team</th>
+				<th>Home Team</th>
+				<th>Away ML</th>
+				<th>Home ML</th>
+				<th>Away Spread</th>
+				<th>Home Spread</th>
+				<th>Away Spread Odds</th>
+				<th>Home Spread Odds</th>
+				<th>Total</th>
+				<th>Total Over Odds</th>
+				<th>Total Under Odds</th>
+				<th>Away Score</th>
+				<th>Home Score</th>
+				<th>Away Scores by Period</th>
+				<th>Home Scores by Period</th>
+				<th>Current Period</th>
+				<th>Period Time Left</th>
+				<th>Status</th>
+				<th>Location</th>
+				<th>Date</th>
+			</tr>
+			#for(game in gamesArr):
+					<tr>
+						<td>#(game.id)</td>
+						<td>#(game.spfID)</td>
+						<td>#(game.league)</td>
+						<td>#(game.awayTeam)</td>
+						<td>#(game.homeTeam)</td>
+						<td>#(game.awayMoneyline)</td>
+						<td>#(game.homeMoneyline)</td>
+						<td>#(game.awaySpread)</td>
+						<td>#(game.homeSpread)</td>
+						<td>#(game.awaySpreadOdds)</td>
+						<td>#(game.homeSpreadOdds)</td>
+						<td>#(game.total)</td>
+						<td>#(game.totalOverOdds)</td>
+						<td>#(game.totalUnderOdds)</td>
+						<td>#(game.awayScore)</td>
+						<td>#(game.homeScore)</td>
+						<td>#(game.awayScoreByPeriod)</td>
+						<td>#(game.homeScoreByPeriod)</td>
+						<td>#(game.currentPeriod)</td>
+						<td>#(game.periodTimeRemaining)</td>
+						<td>#(game.status)</td>
+						<td>#(game.location)</td>
+						<td>#(game.date)</td>
+					</tr>
+			#endfor
+		</table>
+
 		<!--[html-partial:include:{"file":"layout.html"}]/-->
 		#extend("partials/_layout")
 		<!--[html-partial:include:{"file":"partials/_extras/offcanvas/quick-user.html"}]/-->
@@ -148,9 +208,11 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--end::Page Vendors-->
 
 		<!--begin::Page Scripts(used by this page)-->
-		<script src="assets/js/pages/widgets.js"></script>
 
-		<!--end::Page Scripts-->
+
+
+
+
 	</body>
 
 	<!--end::Body-->
