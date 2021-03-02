@@ -60,6 +60,9 @@
                     #if(game.status == "canceled"):
                       <td aria-label="3" class="datatable-cell" data-autohide-disabled="false" data-field="Status"><span style="width: 137px;"><span class="label font-weight-bold label-lg label-light-danger label-inline">Canceled</span></span></td>
                     #endif
+                    #if(game.status == "delayed"):
+                      <td aria-label="3" class="datatable-cell" data-autohide-disabled="false" data-field="Status"><span style="width: 137px;"><span class="label font-weight-bold label-lg label-light-info label-inline">Delayed</span></span></td>
+                    #endif
           				</tr>
                   #endfor
           			</tbody>
