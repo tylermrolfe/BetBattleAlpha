@@ -9,10 +9,3 @@
 import Foundation
 import Vapor
 import Fluent
-
-final class GameEntry: Model, Content {
-    static let schema = "gameEntries"
-    
-    let game: Game?
-    
-}

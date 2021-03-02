@@ -15,7 +15,7 @@ import FoundationNetworking
 func HelperTasks(_ app: Application) throws {
     
     app.get("home") { req -> EventLoopFuture<View> in
-        return req.view.render("home")
+        return req.view.render("pages/home", ["page": Pages.home])
     }
     
     app.get("gamesdb") { req -> EventLoopFuture<View> in
