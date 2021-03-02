@@ -14,6 +14,10 @@ import FoundationNetworking
 
 func HelperTasks(_ app: Application) throws {
     
+    app.get("home") { req -> EventLoopFuture<View> in
+        return req.view.render("home")
+    }
+    
     app.get("gamesdb") { req -> EventLoopFuture<View> in
         return Game.query(on: req.db).filter(\.$status != "canceled").sort(\.$date, .descending).all().flatMap { (games) -> EventLoopFuture<View> in
             return req.view.render("games", ["gamesArr": games])
