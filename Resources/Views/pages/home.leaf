@@ -1,5 +1,6 @@
 
 <!--begin::Main-->
+#extend("index"):
 		#extend("partials/_header-mobile")
 		<div class="d-flex flex-column flex-root">
 
@@ -19,7 +20,7 @@
 
 						#extend("partials/_subheader/subheader-v1")
 
-            #extend("index"):
+
               #export("body"):
             						<div class="row">
             									<div class="col-xl-12">
@@ -244,7 +245,7 @@
             								</div>
             							</div>
                         #endexport
-                      #endextend
+
 
 						<!--Content area here-->
 					</div>
@@ -261,3 +262,4 @@
 		</div>
 
 		<!--end::Main-->
+#endextend
