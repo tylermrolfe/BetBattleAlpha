@@ -55,7 +55,10 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!--begin::Body-->
 	<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
 
-	
+		<!--[html-partial:include:{"file":"layout.html"}]/-->
+		#extend("layout")
+
+
 		<script>
 			var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";
 		</script>
