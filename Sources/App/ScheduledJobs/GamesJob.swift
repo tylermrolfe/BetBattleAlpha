@@ -116,4 +116,8 @@ func runScheduledJobs(_ app: Application) {
         .daily().at(1, 0)
     app.queues.schedule(GamesJob())
         .daily().at(2, 0)
+    app.queues.schedule(GamesJob())
+        .daily().at(3, 0)
+    app.queues.schedule(GamesJob())
+        .daily().at(4, 0)
 }
