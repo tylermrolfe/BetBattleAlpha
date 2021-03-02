@@ -1,7 +1,9 @@
 #extend("index"):
   #export("meta"):
-    <title>#(page.title)</title>
-    <meta name="description" content="#(page.meta)" />
+    <!-- <title>#(page.title)</title> -->
+    <title>Title</title>
+    <!-- <meta name="description" content="#(page.description)" /> -->
+    <meta name="description" content="" />
     #if(page.canonical):
       <link rel="canonical" href="#(page.canonical)" />
     #endif
@@ -19,14 +21,56 @@
         <div class="card card-custom gutter-b">
             <div class="card-header">
               <div class="card-title">
-                  <h3 class="card-label">Base Example</h3>
+                  <h3 class="card-label">Games Data</h3>
               </div>
             </div>
             <div class="card-body">
-              <p>Hello, world</p>
-              <!--begin::Content-->
-
-            </div>
+          	<!--begin: Datatable-->
+          	<div class="datatable datatable-default datatable-bordered datatable-loaded">
+          		<table class="datatable-bordered datatable-head-custom datatable-table" id="kt_datatable" style="display: block;">
+          			<thead class="datatable-head">
+          				<tr class="datatable-row" style="left: 0px;">
+          					<th class="datatable-cell datatable-cell-sort" data-field="Teams"><span style="width: 197px;">Teams</span></th>
+          					<th class="datatable-cell datatable-cell-sort" data-field="Moneyline"><span style="width: 137px;">Moneyline</span></th>
+          					<th class="datatable-cell datatable-cell-sort" data-field="Spread"><span style="width: 137px;">Spread</span></th>
+          					<th class="datatable-cell datatable-cell-sort" data-field="Total"><span style="width: 137px;">Total</span></th>
+          					<th class="datatable-cell datatable-cell-sort" data-field="Score"><span style="width: 137px;">Score</span></th>
+          					<th class="datatable-cell datatable-cell-sort" data-field="Date"><span style="width: 137px;">Date</span></th>
+          					<th class="datatable-cell datatable-cell-sort" data-autohide-disabled="false" data-field="Status"><span style="width: 137px;">Status</span></th>
+          				</tr>
+          			</thead>
+          			<tbody class="datatable-body" style="">
+                  #for(game in gamesArr):
+          				<tr class="datatable-row" data-row="0" style="left: 0px;">
+          					<td aria-label="0006-3629" class="datatable-cell" data-field="Teams"><span style="width: 197px;">#(game.awayTeam) <br/>#(game.homeTeam)</span></td>
+          					<td aria-label="Land Rover" class="datatable-cell" data-field="Moneyline"><span style="width: 137px;">#(game.awayMoneyline) <br/>#(game.homeMoneyline)</span></td>
+          					<td aria-label="Range Rover" class="datatable-cell" data-field="Spread"><span style="width: 137px;">#(game.awaySpread)  &nbsp;#(game.awaySpreadOdds)<br/>#(game.homeSpread) &nbsp;#(game.homeSpreadOdds)</span></td>
+          					<td aria-label="Orange" class="datatable-cell" data-field="Total"><span style="width: 137px;">O#(game.total) &nbsp;#(game.totalOverOdds)<br/>U#(game.total) &nbsp;#(game.totalUnderOdds)</span></td>
+          					<td aria-label="$22672.60" class="datatable-cell" data-field="Score"><span style="width: 137px;">#(game.awayScore) - #(game.homeScore)</span></td>
+          					<td aria-label="2016-11-28" class="datatable-cell" data-field="Date"><span style="width: 137px;">#(game.date)</span></td>
+                    #if(game.status == "final"):
+                      <td aria-label="3" class="datatable-cell" data-autohide-disabled="false" data-field="Status"><span style="width: 137px;"><span class="label font-weight-bold label-lg label-light-success label-inline">Final</span></span></td>
+                    #endif
+                    #if(game.status == "in progress"):
+                      <td aria-label="3" class="datatable-cell" data-autohide-disabled="false" data-field="Status"><span style="width: 137px;"><span class="label font-weight-bold label-lg label-light-primary label-inline">Active</span></span></td>
+                    #endif
+                    #if(game.status == "scheduled"):
+                      <td aria-label="3" class="datatable-cell" data-autohide-disabled="false" data-field="Status"><span style="width: 137px;"><span class="label font-weight-bold label-lg label-light-warning label-inline">Scheduled</span></span></td>
+                    #endif
+                    #if(game.status == "canceled"):
+                      <td aria-label="3" class="datatable-cell" data-autohide-disabled="false" data-field="Status"><span style="width: 137px;"><span class="label font-weight-bold label-lg label-light-danger label-inline">Canceled</span></span></td>
+                    #endif
+          				</tr>
+                  #endfor
+          			</tbody>
+          		</table>
+          		<div class="datatable-pager datatable-paging-loaded">
+          			<div class="datatable-pager-info my-2 mb-sm-0">
+                  <span class="datatable-pager-detail" style="font-weight: 800;">Showing #count(gamesArr) Games</span>
+          			</div>
+          		</div>
+          	</div><!--end: Datatable-->
+          </div>
         </div>
       </div>
     </div>

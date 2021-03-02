@@ -8,6 +8,7 @@ import QueuesFluentDriver
 public func configure(_ app: Application) throws {
     
     app.views.use(.leaf)
+    app.leaf.cache.isEnabled = false
     app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
 
     app.databases.use(.postgres(

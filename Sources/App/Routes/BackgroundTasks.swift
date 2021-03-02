@@ -14,13 +14,13 @@ import FoundationNetworking
 
 func HelperTasks(_ app: Application) throws {
     
-    app.get("home") { req -> EventLoopFuture<View> in
+    app.get("homes") { req -> EventLoopFuture<View> in
         return req.view.render("pages/home", ["page": Pages.home])
     }
     
     app.get("gamesdb") { req -> EventLoopFuture<View> in
         return Game.query(on: req.db).filter(\.$status != "canceled").sort(\.$date, .descending).all().flatMap { (games) -> EventLoopFuture<View> in
-            return req.view.render("games", ["gamesArr": games])
+            return req.view.render("pages/home", ["gamesArr": games])
         }
 
     }

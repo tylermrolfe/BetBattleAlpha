@@ -11,16 +11,16 @@ import Vapor
 
 final class PageMeta: Content {
     let title: String
-    let meta: String
+    let description: String
     let canonical: String?
     
-    init(title: String, meta: String, canonical: String?) {
+    init(title: String, description: String, canonical: String?) {
         self.title = title
-        self.meta = meta
+        self.description = description
         self.canonical = canonical
     }
 }
 
 struct Pages: Content {
-    static let home = PageMeta(title: "BetBattle | Battle with your friends through sports", meta: "BetBattle.gg is changing the way people interact with sporting events and wagers. Join in the fun now for free!", canonical: nil)
+    static let home = PageMeta(title: "BetBattle | Battle with your friends through sports", description: "BetBattle.gg is changing the way people interact with sporting events and wagers. Join in the fun now for free!", canonical: nil)
 }
