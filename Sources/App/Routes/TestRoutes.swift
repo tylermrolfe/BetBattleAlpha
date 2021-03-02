@@ -9,7 +9,7 @@ import FoundationNetworking
 func TestRoutes(_ app: Application) throws {
     
     app.get("index") { req -> EventLoopFuture<View> in
-        return req.view.render("home")
+        return req.view.render("pages/home")
     }
     
     app.get("chargecustomer") { req -> String in
