@@ -54,12 +54,13 @@ License: You must have a valid license purchased only from themeforest(the above
 								<!--[html-partial:include:{"file":"partials/_subheader/subheader-v1.html"}]/-->
 								#extend("partials/_subheader")
 								<!--Content area here-->
-								<p>Hello, world!!</p>
+								<div class="card-body">
+									<p>Hello, world!!</p>
+								</div>
 
 
+								<!--end::Content-->
 							</div>
-							<p>Hello, world</p>
-							<!--end::Content-->
 
 							<!--[html-partial:include:{"file":"partials/_footer.html"}]/-->
 							#extend("partials/_footer")
