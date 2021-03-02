@@ -8,7 +8,7 @@ import FoundationNetworking
 
 func TestRoutes(_ app: Application) throws {
     
-    app.get("index") { req -> EventLoopFuture<View> in
+    app.get("home") { req -> EventLoopFuture<View> in
         return req.view.render("home")
     }
     
