@@ -56,7 +56,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
 
 		<!--[html-partial:include:{"file":"layout.html"}]/-->
-		#extend("layout")
+	
 
 		<!--[html-partial:include:{"file":"partials/_extras/offcanvas/quick-user.html"}]/-->
 		#extend("partials/_extras_offcanvas_quick-user")
