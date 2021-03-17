@@ -1,7 +1,9 @@
 #extend("index"):
   #export("meta"):
-    <title>#(page.title)</title>
-    <meta name="description" content="#(page.meta)" />
+    <!-- <title>#(page.title)</title> -->
+    <title>Title</title>
+    <!-- <meta name="description" content="#(page.description)" /> -->
+    <meta name="description" content="" />
     #if(page.canonical):
       <link rel="canonical" href="#(page.canonical)" />
     #endif
@@ -11,26 +13,22 @@
 
     #extend("partials/_layout-essentials")
 
-
-
-
     <div class="row">
       <div class="col-xl-12">
         <div class="card card-custom gutter-b">
             <div class="card-header">
               <div class="card-title">
-                  <h3 class="card-label">Base Example</h3>
+                  <h3 class="card-label">Today's Games</h3>
               </div>
             </div>
-            <div class="card-body">
-              <!--begin::Content-->
 
-            </div>
+
+
+
+
         </div>
       </div>
     </div>
-
-
 
 						<!--Content area here-->
 					</div>

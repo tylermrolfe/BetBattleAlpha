@@ -25,6 +25,7 @@ public func configure(_ app: Application) throws {
     app.migrations.add(CreateContest())
     app.migrations.add(CreateWager())
     app.migrations.add(JobModelMigrate())
+    app.migrations.add(AddGameFields())
     
     try app.autoMigrate().wait()
     

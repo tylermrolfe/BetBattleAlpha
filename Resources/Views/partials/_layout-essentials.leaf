@@ -4,8 +4,6 @@
   <!--begin::Page-->
   <div class="d-flex flex-row flex-column-fluid page">
 
-    #extend("partials/_aside")
-
     <!--begin::Wrapper-->
     <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
 
@@ -14,5 +12,3 @@
       <div class="container">
       <!--begin::Content-->
       <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-
-        #extend("partials/_subheader/subheader-v1")

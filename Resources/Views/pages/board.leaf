@@ -1,0 +1,131 @@
+#extend("index"):
+  #export("meta"):
+    <!-- <title>#(page.title)</title> -->
+    <title>#(data.meta.title)</title>
+    <meta name="description" content="#(data.meta.description)" />
+    #if(data.meta.canonical):
+      <link rel="canonical" href="#(data.meta.canonical)" />
+    #endif
+  #endexport
+  #export("body"):
+<!--begin::Main-->
+
+    #extend("partials/_layout-essentials")
+    #extend("partials/_extras/offcanvas/quick-bets")
+
+		#extend("partials/_extras/offcanvas/quick-user")
+
+
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="card card-custom gutter-b">
+            <div class="card-header">
+              <div class="card-title">
+                  <h3 class="card-label">Today's Games</h3>
+              </div>
+            </div>
+            <div class="card-body">
+
+              <!-- most basic, used for Knobs demo -->
+              <div class="range-slider" style='--min:5000; --max:25000; --step:1000; --value:5000; --text-value:"5000";'>
+                <input type="range" min="5000" max="25000" step="1000" value="5000" oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify(this.value))">
+                <output></output>
+                <div class='range-slider__progress'></div>
+              </div>
+
+              #for(game in data.games):
+              <div class="row p-2 h-100">
+                <div class="col-sm-3 my-auto">
+                  <p class="team-name text-dark">#(game.awayTeam)</p>
+                </div>
+                <div class="col p-2">
+                  #if(game.awaySpreadOdds > 0):
+                      #if(game.awaySpread > 0):
+                        <button id="awaySpread" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">+#(game.awaySpread)  <span class="odds-text"></br>+#(game.awaySpreadOdds)</span></button>
+                      #else:
+                        <button id="awaySpread" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">#(game.awaySpread)  <span class="odds-text"></br>+#(game.awaySpreadOdds)</span></button>
+                      #endif
+                  #else:
+                      #if(game.awaySpread > 0):
+                        <button id="awaySpread" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">+#(game.awaySpread) <span class="odds-text"></br>#(game.awaySpreadOdds)</span></button>
+                      #else:
+                        <button id="awaySpread" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">#(game.awaySpread) <span class="odds-text"></br>#(game.awaySpreadOdds)</span></button>
+                      #endif
+                  #endif
+                  <p class="text-muted p-1 bet-type">SPREAD</p>
+                </div>
+                <div class="col p-2">
+                  #if(game.awayMoneyline > 0):
+                    <button id="awayMoneyline" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn"><span class="odds-text">+#(game.awayMoneyline)</span></button>
+                  #else:
+                    <button id="awayMoneyline" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn"><span class="odds-text">#(game.awayMoneyline)</span></button>
+                  #endif
+                  <p class="text-muted p-1 bet-type" >MONEYLINE</p>
+                </div>
+                <div class="col p-2">
+                  #if(game.totalOverOdds > 0):
+                    <button id="totalOver" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">o#(game.total)  <span class="odds-text"></br>+#(game.totalOverOdds)</span></button>
+                  #else:
+                    <button id="totalOver" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">o#(game.total)  <span class="odds-text"></br>#(game.totalOverOdds)</span></button>
+                  #endif
+                  <p class="text-muted p-1 bet-type" >TOTAL</p>
+                </div>
+              </div>
+              <div class="row p-2 h-100">
+                <div class="col-sm-3 my-auto">
+                  <p class="team-name text-dark">#(game.homeTeam)</p>
+                </div>
+                <div class="col p-2">
+                  #if(game.homeSpreadOdds > 0):
+                      #if(game.homeSpread > 0):
+                        <button id="homeSpread" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">+#(game.homeSpread)  <span class="odds-text"></br>+#(game.homeSpreadOdds)</span></button>
+                      #else:
+                        <button id="homeSpread" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">#(game.homeSpread)  <span class="odds-text"></br>+#(game.homeSpreadOdds)</span></button>
+                      #endif
+                  #else:
+                      #if(game.homeSpread > 0):
+                        <button id="homeSpread" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">+#(game.homeSpread) <span class="odds-text"></br>#(game.homeSpreadOdds)</span></button>
+                      #else:
+                        <button id="homeSpread" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">#(game.homeSpread) <span class="odds-text"></br>#(game.homeSpreadOdds)</span></button>
+                      #endif
+                  #endif
+                  <p class="text-muted p-1 bet-type">SPREAD</p>
+                </div>
+                <div class="col p-2">
+                  #if(game.homeMoneyline > 0):
+                    <button id="homeMoneyline" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn"><span class="odds-text">+#(game.homeMoneyline)</span></button>
+                  #else:
+                    <button id="homeMoneyline" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn"><span class="odds-text">#(game.homeMoneyline)</span></button>
+                  #endif
+                  <p class="text-muted p-1 bet-type" >MONEYLINE</p>
+                </div>
+                <div class="col p-2">
+                  #if(game.totalOverOdds > 0):
+                    <button id="totalUnder" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">u#(game.total)  <span class="odds-text"></br>+#(game.totalUnderOdds)</span></button>
+                  #else:
+                    <button id="totalUnder" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">u#(game.total)  <span class="odds-text"></br>#(game.totalUnderOdds)</span></button>
+                  #endif
+                  <p class="text-muted p-1 bet-type" >TOTAL</p>
+                </div>
+              </div>
+              <p class="text-primary p-2 game-details">7:30pm | #(game.location)</p>
+              <hr>
+              #endfor
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+						<!--Content area here-->
+					</div>
+					<!--end::Content-->
+					#extend("partials/_footer")
+				</div>
+				<!--end::Wrapper-->
+			</div>
+			<!--end::Page-->
+		</div>
+		<!--end::Main-->
+    #endexport
+#endextend

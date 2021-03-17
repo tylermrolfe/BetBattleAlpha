@@ -22,5 +22,5 @@ final class PageMeta: Content {
 }
 
 struct Pages: Content {
-    static let home = PageMeta(title: "BetBattle | Battle with your friends through sports", description: "BetBattle.gg is changing the way people interact with sporting events and wagers. Join in the fun now for free!", canonical: nil)
+    static let board = PageMeta(title: "Board | BetBattle", description: "Find and bet on games for all of your contests.", canonical: nil)
 }

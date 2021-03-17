@@ -69,8 +69,20 @@ final class Game: Model, Content {
     @Field(key: "homeTeam")
     var homeTeam: String?
     
+    @Field(key: "homeMascot")
+    var homeMascot: String?
+    
+    @Field(key: "homeAbbreviation")
+    var homeAbbreviation: String?
+    
     @Field(key: "awayTeam")
     var awayTeam: String?
+    
+    @Field(key: "awayMascot")
+    var awayMascot: String?
+    
+    @Field(key: "awayAbbreviation")
+    var awayAbbreviation: String?
     
     @Field(key: "status")
     var status: String?
@@ -130,6 +142,10 @@ final class Game: Model, Content {
         self.league = game.details?.league?.rawValue
         self.awayScoreByPeriod = game.scoreboard?.score?.awayPeriods
         self.homeScoreByPeriod = game.scoreboard?.score?.homePeriods
+        self.homeAbbreviation = game.teams?.home?.abbreviation
+        self.awayAbbreviation = game.teams?.away?.abbreviation
+        self.homeMascot = game.teams?.home?.mascot
+        self.awayMascot = game.teams?.away?.mascot
     }
 
 }

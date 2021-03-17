@@ -36,6 +36,21 @@ struct CreateGame: Migration {
     }
 }
 
+struct AddGameFields: Migration {
+    func prepare(on database: Database) -> EventLoopFuture<Void> {
+        return database.schema("games")
+            .field("awayAbbreviation", .string)
+            .field("homeAbbreviation", .string)
+            .field("awayMascot", .string)
+            .field("homeMascot", .string)
+            .update()
+    }
+    
+    func revert(on database: Database) -> EventLoopFuture<Void> {
+        return database.schema("games").delete()
+    }
+}
+
 // MARK: Wager
 struct CreateWager: Migration {
     func prepare(on database: Database) -> EventLoopFuture<Void> {
