@@ -351,6 +351,19 @@
 
  .range-slider,
  label[dir=rtl] .range-slider {
-   width: clamp(300px, 50vw, 800px);
+   width: 100%;
    min-width: 200px;
+   margin-top: 24px;
  }
+ 
+@media (max-width: 500px) {
+   .addToSlip {
+      margin-top: 32px;
+   }
+   .btn:hover { background-color: 255, 255, 255, 0 !important; }
+}
+ 
+ #range-wager {
+    margin-bottom: 72px;
+ }
+

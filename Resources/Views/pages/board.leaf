@@ -26,84 +26,78 @@
             </div>
             <div class="card-body">
 
-              <!-- most basic, used for Knobs demo -->
-              <div class="range-slider" style='--min:5000; --max:25000; --step:1000; --value:5000; --text-value:"5000";'>
-                <input type="range" min="5000" max="25000" step="1000" value="5000" oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify(this.value))">
-                <output></output>
-                <div class='range-slider__progress'></div>
-              </div>
-
               #for(game in data.games):
-              <div class="row p-2 h-100">
+              <div class="row p-2 h-100" id="#(game.id)-away">
                 <div class="col-sm-3 my-auto">
                   <p class="team-name text-dark">#(game.awayTeam)</p>
                 </div>
                 <div class="col p-2">
                   #if(game.awaySpreadOdds > 0):
                       #if(game.awaySpread > 0):
-                        <button id="awaySpread" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">+#(game.awaySpread)  <span class="odds-text"></br>+#(game.awaySpreadOdds)</span></button>
+                        <button id="#(game.id)-away-spread" type="button" onclick="wagerSelected('#(game.id)', 'away-spread', 'away', '#(game.awayTeam)')" class="btn btn-light-dark btn-lg btn-block odd-btn">+#(game.awaySpread)  <span class="odds-text"></br>+#(game.awaySpreadOdds)</span></button>
                       #else:
-                        <button id="awaySpread" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">#(game.awaySpread)  <span class="odds-text"></br>+#(game.awaySpreadOdds)</span></button>
+                        <button id="#(game.id)-away-spread" type="button" onclick="wagerSelected('#(game.id)', 'away-spread', 'away', '#(game.awayTeam)')" class="btn btn-light-dark btn-lg btn-block odd-btn">#(game.awaySpread)  <span class="odds-text"></br>+#(game.awaySpreadOdds)</span></button>
                       #endif
                   #else:
                       #if(game.awaySpread > 0):
-                        <button id="awaySpread" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">+#(game.awaySpread) <span class="odds-text"></br>#(game.awaySpreadOdds)</span></button>
+                        <button id="#(game.id)-away-spread" type="button" onclick="wagerSelected('#(game.id)', 'away-spread', 'away', '#(game.awayTeam)')" class="btn btn-light-dark btn-lg btn-block odd-btn">+#(game.awaySpread) <span class="odds-text"></br>#(game.awaySpreadOdds)</span></button>
                       #else:
-                        <button id="awaySpread" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">#(game.awaySpread) <span class="odds-text"></br>#(game.awaySpreadOdds)</span></button>
+                        <button id="#(game.id)-away-spread" type="button" onclick="wagerSelected('#(game.id)', 'away-spread', 'away', '#(game.awayTeam)')" class="btn btn-light-dark btn-lg btn-block odd-btn">#(game.awaySpread) <span class="odds-text"></br>#(game.awaySpreadOdds)</span></button>
                       #endif
                   #endif
                   <p class="text-muted p-1 bet-type">SPREAD</p>
                 </div>
                 <div class="col p-2">
                   #if(game.awayMoneyline > 0):
-                    <button id="awayMoneyline" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn"><span class="odds-text">+#(game.awayMoneyline)</span></button>
+                    <button id="#(game.id)-away-moneyline" type="button" onclick="wagerSelected('#(game.id)', 'away-moneyline', 'away', '#(game.awayTeam)')" class="btn btn-light-dark btn-lg btn-block odd-btn"><span class="odds-text">+#(game.awayMoneyline)</span></button>
                   #else:
-                    <button id="awayMoneyline" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn"><span class="odds-text">#(game.awayMoneyline)</span></button>
+                    <button id="#(game.id)-away-moneyline" type="button" onclick="wagerSelected('#(game.id)', 'away-moneyline', 'away', '#(game.awayTeam)')" class="btn btn-light-dark btn-lg btn-block odd-btn"><span class="odds-text">#(game.awayMoneyline)</span></button>
                   #endif
                   <p class="text-muted p-1 bet-type" >MONEYLINE</p>
                 </div>
                 <div class="col p-2">
                   #if(game.totalOverOdds > 0):
-                    <button id="totalOver" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">o#(game.total)  <span class="odds-text"></br>+#(game.totalOverOdds)</span></button>
+                    <button id="#(game.id)-total-over" type="button" onclick="wagerSelected('#(game.id)', 'total-over', 'away', '#(game.awayTeam)')" class="btn btn-light-dark btn-lg btn-block odd-btn">o#(game.total)  <span class="odds-text"></br>+#(game.totalOverOdds)</span></button>
                   #else:
-                    <button id="totalOver" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">o#(game.total)  <span class="odds-text"></br>#(game.totalOverOdds)</span></button>
+                    <button id="#(game.id)-total-over" type="button" onclick="wagerSelected('#(game.id)', 'total-over', 'away', '#(game.awayTeam)')" class="btn btn-light-dark btn-lg btn-block odd-btn">o#(game.total)  <span class="odds-text"></br>#(game.totalOverOdds)</span></button>
                   #endif
                   <p class="text-muted p-1 bet-type" >TOTAL</p>
                 </div>
               </div>
-              <div class="row p-2 h-100">
+              
+              <div class="row p-2 h-100" id="#(game.id)-home">
                 <div class="col-sm-3 my-auto">
                   <p class="team-name text-dark">#(game.homeTeam)</p>
                 </div>
                 <div class="col p-2">
                   #if(game.homeSpreadOdds > 0):
                       #if(game.homeSpread > 0):
-                        <button id="homeSpread" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">+#(game.homeSpread)  <span class="odds-text"></br>+#(game.homeSpreadOdds)</span></button>
+                        <button id="#(game.id)-home-spread" type="button" onclick="wagerSelected('#(game.id)', 'home-spread', 'home', '#(game.homeTeam)')" class="btn btn-light-dark btn-lg btn-block odd-btn">+#(game.homeSpread)  <span class="odds-text"></br>+#(game.homeSpreadOdds)</span></button>
                       #else:
-                        <button id="homeSpread" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">#(game.homeSpread)  <span class="odds-text"></br>+#(game.homeSpreadOdds)</span></button>
+                        <button id="#(game.id)-home-spread" type="button" onclick="wagerSelected('#(game.id)', 'home-spread', 'home', '#(game.homeTeam)')" class="btn btn-light-dark btn-lg btn-block odd-btn">#(game.homeSpread)  <span class="odds-text"></br>+#(game.homeSpreadOdds)</span></button>
                       #endif
                   #else:
                       #if(game.homeSpread > 0):
-                        <button id="homeSpread" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">+#(game.homeSpread) <span class="odds-text"></br>#(game.homeSpreadOdds)</span></button>
+                        <button id="#(game.id)-home-spread" type="button" onclick="wagerSelected('#(game.id)', 'home-spread', 'home', '#(game.homeTeam)')" class="btn btn-light-dark btn-lg btn-block odd-btn">+#(game.homeSpread) <span class="odds-text"></br>#(game.homeSpreadOdds)</span></button>
                       #else:
-                        <button id="homeSpread" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">#(game.homeSpread) <span class="odds-text"></br>#(game.homeSpreadOdds)</span></button>
+                        <button id="#(game.id)-home-spread" type="button" onclick="wagerSelected('#(game.id)', 'home-spread', 'home', '#(game.homeTeam)')" class="btn btn-light-dark btn-lg btn-block odd-btn">#(game.homeSpread) <span class="odds-text"></br>#(game.homeSpreadOdds)</span></button>
                       #endif
                   #endif
                   <p class="text-muted p-1 bet-type">SPREAD</p>
                 </div>
                 <div class="col p-2">
                   #if(game.homeMoneyline > 0):
-                    <button id="homeMoneyline" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn"><span class="odds-text">+#(game.homeMoneyline)</span></button>
+                    <button id="#(game.id)-home-moneyline" type="button" onclick="wagerSelected('#(game.id)', 'home-moneyline', 'home', '#(game.homeTeam)')" class="btn btn-light-dark btn-lg btn-block odd-btn"><span class="odds-text">+#(game.homeMoneyline)</span></button>
                   #else:
-                    <button id="homeMoneyline" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn"><span class="odds-text">#(game.homeMoneyline)</span></button>
+                    <button id="#(game.id)-home-moneyline" type="button" onclick="wagerSelected('#(game.id)', 'home-moneyline', 'home', '#(game.homeTeam)')" class="btn btn-light-dark btn-lg btn-block odd-btn"><span class="odds-text">#(game.homeMoneyline)</span></button>
                   #endif
                   <p class="text-muted p-1 bet-type" >MONEYLINE</p>
                 </div>
                 <div class="col p-2">
                   #if(game.totalOverOdds > 0):
-                    <button id="totalUnder" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">u#(game.total)  <span class="odds-text"></br>+#(game.totalUnderOdds)</span></button>
+                    <button id="#(game.id)-total-under" type="button" onclick="wagerSelected('#(game.id)', 'total-under', 'home', '#(game.homeTeam)')" class="btn btn-light-dark btn-lg btn-block odd-btn">u#(game.total)  <span class="odds-text"></br>+#(game.totalUnderOdds)</span></button>
                   #else:
-                    <button id="totalUnder" type="button" class="btn btn-light-dark btn-lg btn-block odd-btn">u#(game.total)  <span class="odds-text"></br>#(game.totalUnderOdds)</span></button>
+                    <button id="#(game.id)-total-under" type="button" onclick="wagerSelected('#(game.id)', 'total-under', 'home', '#(game.homeTeam)')" class="btn btn-light-dark btn-lg btn-block odd-btn">u#(game.total)  <span class="odds-text"></br>#(game.totalUnderOdds)</span></button>
                   #endif
                   <p class="text-muted p-1 bet-type" >TOTAL</p>
                 </div>

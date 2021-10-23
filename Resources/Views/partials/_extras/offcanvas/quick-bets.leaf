@@ -1,10 +1,10 @@
-
 <!--begin::Quick Cart-->
 		<div id="kt_quick_cart" class="offcanvas offcanvas-right p-10">
 
 			<!--begin::Header-->
 			<div class="offcanvas-header d-flex align-items-center justify-content-between pb-7">
 				<h4 class="font-weight-bold m-0 pn-700">My Bet Slip</h4>
+				
 				<a href="#" class="btn btn-text-dark-50 btn-icon-primary font-weight-bold btn-hover-bg-light mr-3" id="kt_quick_cart_close">
     			<i class="ki ki-long-arrow-next icon-xs"></i> Close
 				</a>
@@ -16,7 +16,28 @@
 			<div class="offcanvas-content">
 
 				<!--begin::Wrapper-->
-				<div class="offcanvas-wrapper mb-5 scroll-pull">
+				<div class="offcanvas-wrapper mb-5 scroll-pull" id="betinits">
+					
+					#for(wager in data.wagers):
+						#for(game in data.games):
+							#if(wager.game.id && game.id && wager.game.id == game.id):
+								<!--begin::Item-->
+								<div class="d-flex align-items-center justify-content-between py-8">
+									<div class="d-flex flex-column mr-2 align-middle">
+										<a href="#" class="text-dark-75 slip-bet-text text-hover-primary">CHI Blackhawks ML +140</a>
+										<span class="text-muted">Risk $5,000 to win 7 Points</span>
+									</div>
+									<a href="#" class="btn btn-sm btn-icon btn-circle btn-light-danger">
+									<i class="ki ki-close icon-xs text-muted"></i>
+									</a>
+								</div>
+								<!--end::Item-->
+			
+								<!--begin::Separator-->
+								<div class="separator separator-solid"></div>
+							#endif
+						#endfor
+					#endfor
 
 					<!--begin::Item-->
 					<div class="d-flex align-items-center justify-content-between py-8">

@@ -166,6 +166,7 @@ a:hover {
 }
 
 a:not([href]):not([class]) {
+	
   color: inherit;
   text-decoration: none;
 }
@@ -2715,15 +2716,14 @@ textarea.form-control {
   border-radius: 0.42rem;
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
+
 @media (prefers-reduced-motion: reduce) {
   .btn {
     transition: none;
   }
 }
-.btn:hover {
-  color: #3F4254;
-  text-decoration: none;
-}
+
 .btn:focus, .btn.focus {
   outline: 0;
   box-shadow: none;
@@ -57141,24 +57141,7 @@ button {
 .btn.btn-light-dark.dropdown-toggle:after {
   color: #181C32;
 }
-.btn.btn-light-dark:hover:not(.btn-text):not(:disabled):not(.disabled), .btn.btn-light-dark:focus:not(.btn-text), .btn.btn-light-dark.focus:not(.btn-text) {
-  color: #ffffff;
-  background-color: #181C32;
-  border-color: transparent;
-}
-.btn.btn-light-dark:hover:not(.btn-text):not(:disabled):not(.disabled) i, .btn.btn-light-dark:focus:not(.btn-text) i, .btn.btn-light-dark.focus:not(.btn-text) i {
-  color: #ffffff;
-}
-.btn.btn-light-dark:hover:not(.btn-text):not(:disabled):not(.disabled) .svg-icon svg g [fill], .btn.btn-light-dark:focus:not(.btn-text) .svg-icon svg g [fill], .btn.btn-light-dark.focus:not(.btn-text) .svg-icon svg g [fill] {
-  transition: fill 0.3s ease;
-  fill: #ffffff;
-}
-.btn.btn-light-dark:hover:not(.btn-text):not(:disabled):not(.disabled) .svg-icon svg:hover g [fill], .btn.btn-light-dark:focus:not(.btn-text) .svg-icon svg:hover g [fill], .btn.btn-light-dark.focus:not(.btn-text) .svg-icon svg:hover g [fill] {
-  transition: fill 0.3s ease;
-}
-.btn.btn-light-dark:hover:not(.btn-text):not(:disabled):not(.disabled).dropdown-toggle:after, .btn.btn-light-dark:focus:not(.btn-text).dropdown-toggle:after, .btn.btn-light-dark.focus:not(.btn-text).dropdown-toggle:after {
-  color: #ffffff;
-}
+
 .btn.btn-light-dark.disabled, .btn.btn-light-dark:disabled {
   color: #181C32;
   background-color: #D1D3E0;

@@ -40,6 +40,7 @@ public func configure(_ app: Application) throws {
     try app.queues.startScheduledJobs()
 
     //MARK: Routes
-    try TestRoutes(app)
-    try HelperTasks(app)
+    try StripeRoutes(app)
+    try UserRoutes(app)
+    try ViewsRoutes(app)
 }

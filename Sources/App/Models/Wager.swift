@@ -64,6 +64,10 @@ final class Wager: Model, Content {
     @Enum(key: "grade")
     var grade: WagerGrade
     
+    var riskString: String = "HEYYYYY I was born today"
+    
+    // #TODO - Add in ML team ID or name?
+    
     private func roundToPlaces(value:Float, places:Int) -> Float {
         let divisor = pow(10.0, Float(places))
         return round(value * divisor) / divisor
@@ -82,7 +86,9 @@ final class Wager: Model, Content {
         }
     }
     
-    init() { }
+    init() {
+        riskString = "FOOBAR"
+    }
     
     
     

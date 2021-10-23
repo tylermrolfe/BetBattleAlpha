@@ -11,7 +11,7 @@
 
 		<!--begin::Fonts-->
 		<link rel="stylesheet" href="https://use.typekit.net/nix7jhc.css">
-		<!--end::Fonts-->
+		<!--end::Fonts-->		
 
 		<!--begin::Page Vendors Styles(used by this page)-->
 		<link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
@@ -22,7 +22,7 @@
 		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="assets/css/custom.css" rel="stylesheet" type="text/css" />
+		<link href="assets/css/custom-min.css" rel="stylesheet" type="text/css" />
 
 		<!--end::Global Theme Styles-->
 
@@ -39,6 +39,8 @@
 
 	<!--begin::Body-->
 	<body id="kt_body" class="header-fixed header-mobile-fixed footer-fixed page-loading">
+		<script src="assets/js/custom/boards.js"></script>
+		<script src="assets/js/custom/betslip.js"></script>
 
 		#import("body")
 

@@ -1,23 +1,26 @@
 //
 //  File.swift
+//  
 //
-//
-//  Created by Tyler Rolfe on 1/4/21.
+//  Created by Tyler Rolfe on 10/23/21.
 //
 
-import Foundation
-import Vapor
 import Fluent
+import FluentPostgresDriver
+import Vapor
+import Stripe
 #if canImport(FoundationNetworking)
 import FoundationNetworking
 #endif
 
-func HelperTasks(_ app: Application) throws {
-    
+func ViewsRoutes(_ app: Application) throws {
     app.get("board") { req -> EventLoopFuture<View> in
         return Game.query(on: req.db).filter(\.$status == "scheduled").sort(\.$date, .descending).all().flatMap { (games) -> EventLoopFuture<View> in
-            return req.view.render("pages/board", ["data": GamesContext(meta: Pages.board, games: games)])
+            return Wager.query(on: req.db).filter(\.$type == WagerType.moneyline).all().flatMap { (wagers) -> EventLoopFuture<View> in
+                return req.view.render("pages/board", ["data": GamesContext(meta: Pages.board, games: games, wagers: wagers)])
+            }
         }
+        
     }
     
     app.get("gamesdb") { req -> EventLoopFuture<View> in
