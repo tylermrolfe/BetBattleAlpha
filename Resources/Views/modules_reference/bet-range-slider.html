@@ -1,0 +1,11 @@
+<div class="row" id="range-wager">
+	<div class="col-sm-3"></div>
+		<div class="col-sm-6">
+		  <div class="range-slider" style='--min:5000; --max:25000; --step:1000; --value:5000; --text-value:"5000";' id="amt-slider"> <input id="sliderInput" type="range" min="5000" max="25000" step="1000" value="5000" oninput="this.parentNode.style.setProperty('--value',this.value); value = this.value; this.parentNode.style.setProperty('--text-value', JSON.stringify(this.value))"> <output></output> 
+			<div class='range-slider__progress'></div>
+		  </div>
+		</div>
+	<div class="col-sm-3">
+	  <button type="button" class="btn btn-primary btn-lg btn-block odd-btn addToSlip"><span class="odds-text">ADD TO BET SLIP</span></button>
+	</div>
+</div>
